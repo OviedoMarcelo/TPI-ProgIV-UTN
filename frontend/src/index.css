@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Las clases dark: se activan con la clase .dark en <html> (la pone el
+   themeStore), no con la preferencia del sistema operativo */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Scrollbars, inputs de fecha y otros controles nativos en oscuro */
+html.dark {
+    color-scheme: dark;
+}

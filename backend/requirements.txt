@@ -1,0 +1,17 @@
+# Versiones fijadas (las más nuevas al momento de la entrega).
+# fastapi[standard] instala uvicorn, email-validator y la CLI de FastAPI.
+fastapi[standard]==0.165.0
+sqlmodel==0.0.50
+SQLAlchemy==2.1.9
+pydantic==2.14.4
+pydantic-settings==2.16.3
+python-multipart==0.0.34
+# PostgreSQL con psycopg 3 (sucesor de psycopg2)
+psycopg[binary]==3.3.9
+# JWT: PyJWT, mantenida (python-jose está prácticamente sin mantenimiento)
+PyJWT==2.15.1
+# Hash bcrypt: pwdlib reemplaza a passlib, abandonada e incompatible con bcrypt 5
+pwdlib[bcrypt]==0.4.2
+bcrypt==5.0.0
+email-validator==2.4.0
+uvicorn[standard]==0.54.0

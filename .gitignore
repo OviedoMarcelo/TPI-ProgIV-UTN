@@ -1,0 +1,17 @@
+# Variables de entorno (credenciales): solo se versiona .env.example
+.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+
+# Editores y sistema
+.vscode/
+.idea/
+.DS_Store
