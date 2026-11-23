@@ -7,7 +7,7 @@ Sistema de pedidos de comida: los clientes navegan el catálogo, arman el carrit
 confirman pedidos; los administradores gestionan categorías, productos, pedidos y
 usuarios desde un panel.
 
-- **Repositorio:** <https://github.com/USUARIO/REPOSITORIO>
+- **Repositorio:** <https://github.com/OviedoMarcelo/TPI-ProgIV-UTN>
 - **Video de presentación:** <ENLACE_AL_VIDEO>
 
 | Capa | Tecnologías |
