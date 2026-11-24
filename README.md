@@ -8,11 +8,11 @@ confirman pedidos; los administradores gestionan categorías, productos, pedidos
 usuarios desde un panel.
 
 - **Repositorio:** <https://github.com/OviedoMarcelo/TPI-ProgIV-UTN>
-- **Video de presentación:** <ENLACE_AL_VIDEO>
+- **Video de presentación:** <https://youtu.be/zcaRy1pyDBA>
 
-| Capa | Tecnologías |
-|---|---|
-| Backend | Python, FastAPI, SQLModel (SQLAlchemy 2), PostgreSQL, psycopg 3, PyJWT, pwdlib (bcrypt) |
+| Capa     | Tecnologías                                                                                                       |
+| -------- | ----------------------------------------------------------------------------------------------------------------- |
+| Backend  | Python, FastAPI, SQLModel (SQLAlchemy 2), PostgreSQL, psycopg 3, PyJWT, pwdlib (bcrypt)                           |
 | Frontend | React 19, TypeScript (estricto), Vite, Tailwind CSS 4, React Router, Axios, Zustand, TanStack Query, Form y Table |
 
 ## Requisitos
@@ -46,14 +46,14 @@ pip install -r requirements.txt
 
 Copiar `.env.example` como `.env` y completar los valores:
 
-| Variable | Descripción | Ejemplo |
-|---|---|---|
-| `DATABASE_URL` | Conexión a PostgreSQL | `postgresql+psycopg://postgres:<contraseña>@localhost:5432/foodstore_db` |
-| `SECRET_KEY` | Clave para firmar los JWT (mínimo 32 caracteres) | ver comando abajo |
-| `ALGORITHM` | Algoritmo de firma | `HS256` |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | Duración de la sesión | `30` |
-| `FRONTEND_ORIGIN` | Origen permitido por CORS | `http://localhost:5173` |
-| `COOKIE_SECURE` | `true` solo con HTTPS | `false` |
+| Variable                      | Descripción                                      | Ejemplo                                                                  |
+| ----------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------ |
+| `DATABASE_URL`                | Conexión a PostgreSQL                            | `postgresql+psycopg://postgres:<contraseña>@localhost:5432/foodstore_db` |
+| `SECRET_KEY`                  | Clave para firmar los JWT (mínimo 32 caracteres) | ver comando abajo                                                        |
+| `ALGORITHM`                   | Algoritmo de firma                               | `HS256`                                                                  |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | Duración de la sesión                            | `30`                                                                     |
+| `FRONTEND_ORIGIN`             | Origen permitido por CORS                        | `http://localhost:5173`                                                  |
+| `COOKIE_SECURE`               | `true` solo con HTTPS                            | `false`                                                                  |
 
 Generar una `SECRET_KEY`:
 
@@ -70,10 +70,10 @@ python -m app.db.seed
 Crea las tablas y carga dos usuarios, 5 categorías y 14 productos. Se puede
 ejecutar más de una vez: no duplica datos.
 
-| Usuario | Contraseña | Rol |
-|---|---|---|
-| `admin` | `Admin1234!` | Administrador |
-| `cliente` | `Cliente1234!` | Cliente |
+| Usuario   | Contraseña     | Rol           |
+| --------- | -------------- | ------------- |
+| `admin`   | `Admin1234!`   | Administrador |
+| `cliente` | `Cliente1234!` | Cliente       |
 
 ### Ejecutar
 
@@ -101,8 +101,8 @@ admite el CORS del backend.
 
 Variable de entorno opcional (`.env`, ver `.env.example`):
 
-| Variable | Descripción | Valor por defecto |
-|---|---|---|
+| Variable       | Descripción        | Valor por defecto              |
+| -------------- | ------------------ | ------------------------------ |
 | `VITE_API_URL` | URL base de la API | `http://localhost:8000/api/v1` |
 
 Usar `localhost` y no `127.0.0.1`: si no, el navegador no envía la cookie de sesión.
@@ -112,18 +112,21 @@ Otros comandos: `pnpm build` (compilación de producción) y `pnpm lint`.
 ## Funcionalidades
 
 **Cliente**
+
 - Catálogo con búsqueda por nombre, filtro por categoría y paginación en el servidor.
 - Carrito persistente en el navegador (cantidades limitadas al stock).
 - Checkout con dirección, forma de pago (efectivo o transferencia) y notas.
 - "Mis pedidos": historial paginado, detalle y cancelación de pedidos pendientes.
 
 **Administrador**
+
 - Resumen: pedidos del día, cantidad por estado e ingresos de los entregados.
 - ABM de categorías y productos (con baja lógica) y ajuste rápido de stock.
 - Gestión de pedidos: filtro por estado y avance PENDIENTE → EN_PREPARACION → ENTREGADO, o cancelación.
 - Usuarios: listado, activación y desactivación de cuentas.
 
 **Reglas de negocio**
+
 - El pedido se crea en una sola transacción (Unit of Work): si un producto no tiene
   stock, no se guarda nada.
 - Los productos se bloquean con `SELECT ... FOR UPDATE` para evitar vender el mismo
